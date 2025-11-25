@@ -1,19 +1,26 @@
-library(magick)
 
+# cargar/instalar paquete
+if(!require(magick)) {
+  install.packages("magick")
+  library(magick)
+}
+
+fondo = "#181818" # color del fondo
+porcentaje = 0.4 # tamaño de la imagen
+
+# obtener un gatito
 gatito <- "https://cataas.com/cat"
 
-figura <- gatito |> 
-  image_read() |> 
-  image_resize(300)
+# obtener tamaño del panel
+tamaño <- dev.size("px")/2
 
-tamaño <- grDevices::dev.size("px")/2
+# achicar imagen
+imagen <- image_read(piolín) |> image_resize(tamaño*porcentaje)
 
-fondo <- image_blank(width = tamaño[1], 
-                     height = tamaño[2], 
-                     color = "#181818")
+# crear fondo
+fondo <- image_blank(width = tamaño[1], height = tamaño[2], color = fondo)
 
-salida <- image_composite(fondo, 
-                          figura, 
-                          gravity = "center")
+# unir imagen y fondo
+salida <- image_composite(fondo, imagen, gravity = "center")
 
 print(salida, info = FALSE)
