@@ -6,14 +6,14 @@ tamaño <- "70%"
 fondo <- "#181818"
 
 # escoger imagen
-if (saludito %in% c("gato", "gatos")) {
+if (saludito %in% c("gato", "gatos", "cats")) {
   # gatos
   imagen <- "https://cataas.com/cat"
   
 } else if (saludito %in% c("piolín", "piolin", "piolines")) {
   # piolines
-  piolines <- paste0("https://raw.githubusercontent.com/bastianolea/piolines/master/img/piolin_", 1:12, ".jpg")
-  imagen <- sample(piolines, 1)
+  imagen <- paste0("https://raw.githubusercontent.com/bastianolea/piolines/master/img/piolin_", 1:12, ".jpg") |> 
+    sample(1)
 }
 
 # crear página en html
@@ -32,4 +32,4 @@ writeLines(text = as.character(imagen), temporal)
 rstudioapi::viewer(temporal)
 
 # limpieza
-rm(temporal, imagen, fondo, tamaño, saludito, piolines)
+rm(temporal, imagen, fondo, tamaño, saludito)
