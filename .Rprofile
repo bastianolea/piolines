@@ -7,7 +7,7 @@ setHook("rstudio.sessionInit", function(newSession) {
     library(shiny)
     
     # opciones
-    saludito <- "piolín"
+    saludito <- "gatos"
     tamaño <- "70%"
     fondo <- "#181818"
     
@@ -18,7 +18,7 @@ setHook("rstudio.sessionInit", function(newSession) {
       
     } else if (saludito %in% c("piolín", "piolin", "piolines")) {
       # piolines
-      imagen <- paste0("https://raw.githubusercontent.com/bastianolea/piolines/master/img/piolin_", 1:12, ".jpg") |> 
+      imagen <- paste0("https://raw.githubusercontent.com/bastianolea/piolines/master/img/piolin_", 1:20, ".jpg") |> 
         sample(1)
     }
     

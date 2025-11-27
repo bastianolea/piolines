@@ -7,7 +7,7 @@ if(!require(magick)) {
 fondo = "#181818" # color del fondo
 porcentaje = 0.4 # tamaño de la imagen
 
-piolines <- list.files("imágenes", full.names = TRUE)
+piolines <- list.files("img", full.names = TRUE)
 piolín <- sample(piolines, 1)
 
 # obtener tamaño del panel
